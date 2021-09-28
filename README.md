@@ -14,6 +14,10 @@
 - React
 - Redux
 
+
+## Demo version
+
+[Demo](https://xjoker-boo-store.netlify.app/)
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.

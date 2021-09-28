@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
-const Showbooks = () => {
+const Showbooks = (props) => {
   const homeStyles = [
     {
       display: 'flex',
@@ -56,20 +58,21 @@ const Showbooks = () => {
       opacity: '0.5',
     },
   ];
+
   return (
     <section style={homeStyles[1]}>
       <div style={homeStyles[2]}>
         <ul style={{ lineHeight: '0' }}>
           <li style={homeStyles[4]}>
-            Love
+            {props.author}
           </li>
           <li>
             <h3 style={{ fontSize: '1.375rem' }}>
-              Today will be a good day
+              {props.title}
             </h3>
           </li>
           <li style={homeStyles[4]}>
-            Jhon Doe
+            {props.categories}
           </li>
         </ul>
         <ul style={homeStyles[3]}>

@@ -23,6 +23,7 @@ ul {
   text-decoration: none;
   color: black;
 }
+
 .nav-ul li a {
   text-decoration: none;
   color: black;
@@ -38,7 +39,7 @@ ul {
 }
 
 .nav-bar {
-  background: #ffffff;
+  background: #fff;
 }
 
 img {
@@ -57,7 +58,6 @@ button {
   border-radius: 3px;
   border: white 1px solid;
   background-color: #0290ff;
-  font-family: RobotoSlab;
   font-size: 0.813rem;
   font-weight: 300;
   font-stretch: normal;
@@ -65,5 +65,5 @@ button {
   line-height: normal;
   letter-spacing: 0.5px;
   text-align: center;
-  color: #fff
+  color: #fff;
 }

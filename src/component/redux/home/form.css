@@ -1,22 +1,21 @@
 form {
-    align-self: center;
+  align-self: center;
 }
 
 .title {
-    width: 10.875rem;
-    height: 1.5rem;
-    margin: 1.813rem 32.75rem 1.188rem 0;
-    font-family: Montserrat;
-    font-size: 1.25rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.18px;
-    color: #888;
+  width: 10.875rem;
+  height: 1.5rem;
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
 }
 
 select {
-    width: 150px;
-    margin: 25px;
+  width: 150px;
+  margin: 25px;
 }

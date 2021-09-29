@@ -1,8 +1,14 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { remove } from '../../redux/books/configBooks';
 
 const Showbooks = (props) => {
+  const dispatch = useDispatch();
+  const removeBookAction = bindActionCreators(remove, dispatch);
   const homeStyles = [
     {
       display: 'flex',
@@ -80,7 +86,7 @@ const Showbooks = (props) => {
             Comments
           </li>
           <li style={homeStyles[4]}>
-            Remove
+            <i role="button" onClick={() => removeBookAction(props.bookId)} tabIndex="0">Remove</i>
           </li>
           <li style={homeStyles[4]}>
             Edit

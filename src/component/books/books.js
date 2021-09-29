@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loadBooks } from '../../redux/books/configBooks';
 import Form from '../home/form';
 import Showbooks from './Showbooks';
 
 const Books = () => {
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  const loadBooksAction = bindActionCreators(loadBooks, dispatch);
+
+  useEffect(() => {
+    loadBooksAction();
+    return null;
+  }, []);
+
   const homeStyles = [
     {
       display: 'flex',
@@ -11,9 +23,15 @@ const Books = () => {
   ];
   return (
     <div style={homeStyles[0]}>
-      <Showbooks title="Hey where is my momma?" author="Hamza" categories="Fantasy" />
-      <Showbooks title="Why I love my dog?" author="Arigbabuwo" categories="Living" />
-      <Showbooks title="Can I sell my body?" author="Nelsino" categories="Horror" />
+      {books.map((book) => (
+        <Showbooks
+          title={book.title}
+          author={book.author}
+          categories={book.categories}
+          bookId={book.id}
+          key={book.id}
+        />
+      ))}
       <Form />
     </div>
   );

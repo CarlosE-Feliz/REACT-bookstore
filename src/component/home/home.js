@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Categories from '../categories/categories';
 import Books from '../books/books';
+import store from '../../redux/configureStore';
 
 const Home = () => (
   <Router>
@@ -24,14 +26,16 @@ const Home = () => (
           </li>
         </ul>
       </nav>
-      <Switch>
-        <Route path="/categories">
-          <Categories />
-        </Route>
-        <Route path="/">
-          <Books />
-        </Route>
-      </Switch>
+      <Provider store={store}>
+        <Switch>
+          <Route path="/categories">
+            <Categories />
+          </Route>
+          <Route path="/">
+            <Books />
+          </Route>
+        </Switch>
+      </Provider>
     </div>
   </Router>
 );

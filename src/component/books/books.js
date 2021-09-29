@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadBooks } from '../../redux/books/configBooks';
 import Form from '../home/form';
+import './books.css';
 import Showbooks from './Showbooks';
 
 const Books = () => {
@@ -15,14 +16,8 @@ const Books = () => {
     return null;
   }, []);
 
-  const homeStyles = [
-    {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-  ];
   return (
-    <div style={homeStyles[0]}>
+    <div className="divs">
       {books.map((book) => (
         <Showbooks
           title={book.title}

@@ -17,7 +17,7 @@ const Form = () => {
   const updateCategory = (e) => setCategories(e.target.value);
   const addNewBook = (e) => {
     e.preventDefault();
-    if (title && author && categories) {
+    if (title && author) {
       createBookAction({
         title,
         author,
@@ -26,15 +26,14 @@ const Form = () => {
       setTitle('');
       setAuthor('');
       setCategories('');
-      console.log(title, author, categories);
     }
   };
   return (
     <>
       <h3 className="title"> Add new book</h3>
       <form onSubmit={addNewBook}>
-        <input id="book" placeholder="Book Title" onChange={updateTitle} type="text" />
-        <input id="author" placeholder="Author" onChange={updateAuthor} type="text" />
+        <input id="book" placeholder="Book Title" onChange={updateTitle} value={title} type="text" />
+        <input id="author" placeholder="Author" onChange={updateAuthor} type="text" value={author} />
         <select name="category" onChange={updateCategory}>
           <option value="Category">Category</option>
           <option value="Fantasy">Fantasy</option>

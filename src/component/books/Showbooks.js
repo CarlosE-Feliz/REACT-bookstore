@@ -4,26 +4,24 @@
 import React from 'react';
 import './books.css';
 import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { remove } from '../../redux/books/configBooks';
 
-const Showbooks = (props) => {
+const Showbooks = ({ title, category, itemId }) => {
   const dispatch = useDispatch();
-  const removeBookAction = bindActionCreators(remove, dispatch);
+  const deleteBook = (book) => {
+    dispatch(remove(book));
+  };
   return (
     <section className="section">
       <div className="divs">
         <ul style={{ lineHeight: '0' }}>
-          <li className="li-style">
-            {props.author}
-          </li>
           <li>
             <h3 style={{ fontSize: '1.375rem' }}>
-              {props.title}
+              {title}
             </h3>
           </li>
           <li className="li-style">
-            {props.categories}
+            {category}
           </li>
         </ul>
         <ul className="ul">
@@ -31,7 +29,7 @@ const Showbooks = (props) => {
             Comments
           </li>
           <li className="li-style">
-            <i role="button" onClick={() => removeBookAction(props.bookId)} tabIndex="0">Remove</i>
+            <i role="button" onClick={() => deleteBook(itemId)} tabIndex="0">Remove</i>
           </li>
           <li className="li-style">
             Edit

@@ -1,4 +1,6 @@
+/* eslint-disable no-console */
 import React, { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadBooks } from '../../redux/books/configBooks';
@@ -13,18 +15,16 @@ const Books = () => {
 
   useEffect(() => {
     loadBooksAction();
-    return null;
   }, []);
 
   return (
     <div className="divs">
-      {books.map((book) => (
+      {Object.keys(books).map((book) => (
         <Showbooks
-          title={book.title}
-          author={book.author}
-          categories={book.categories}
-          bookId={book.id}
-          key={book.id}
+          title={books[book].title}
+          category={books[book].category}
+          item_id={uuidv4()}
+          key={uuidv4()}
         />
       ))}
       <Form />

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import axios from 'axios';
@@ -40,13 +41,13 @@ export const createBook = (book) => {
     });
   };
 };
-export const remove = (itemId) => {
+export const remove = (bookId) => {
   return (dispatch) => {
-    axios.delete(`${API_URL}/${itemId}`)
+    axios.delete(`${API_URL}/${bookId}`)
       .then(() => {
         dispatch({
           type: REMOVE_BOOK,
-          itemId,
+          bookId,
         });
       });
   };
@@ -62,9 +63,8 @@ export const loadBooks = () => {
           allData.forEach(([key, value]) => {
             const item = { ...value, key };
             const itemObj = Object.values(item);
-            newData.push({ ...itemObj[0], itemId: itemObj[1] });
+            newData.push({ ...itemObj[0], item_id: itemObj[1] });
           });
-          console.log(newData);
           dispatch({
             type: UPDATE_BOOK,
             newData,

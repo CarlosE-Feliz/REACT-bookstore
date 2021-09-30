@@ -8,7 +8,7 @@ const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const UPDATE_BOOK = 'bookStore/books/UPDATE_BOOK';
 
-const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/8yL2XW3jT4vhtB6d0EAX/books';
+const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y8lERMzmZCFsys89VoWU/books';
 const initialBooks = [];
 const reducer = (state = initialBooks, action) => {
   switch (action.type) {
@@ -61,7 +61,7 @@ export const loadBooks = () => {
           const allData = Object.entries(res.data);
           const newData = [];
           allData.forEach(([key, value]) => {
-            const item = { ...value, key };
+            const item = { ...value, item_id: key };
             const itemObj = Object.values(item);
             newData.push({ ...itemObj[0], item_id: itemObj[1] });
           });

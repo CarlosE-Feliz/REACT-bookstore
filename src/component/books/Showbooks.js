@@ -5,7 +5,7 @@
 import React from 'react';
 import './books.css';
 
-const Showbooks = ({ title, category, item_id }) => (
+const Showbooks = ({ title, category, removeBook }) => (
   <section className="section">
     <div className="divs">
       <ul style={{ lineHeight: '0' }}>
@@ -23,7 +23,7 @@ const Showbooks = ({ title, category, item_id }) => (
           Comments
         </li>
         <li className="li-style">
-          <i role="button" onClick={item_id} tabIndex="0">Remove</i>
+          <i role="button" onClick={removeBook} tabIndex="0">Remove</i>
         </li>
         <li className="li-style">
           Edit

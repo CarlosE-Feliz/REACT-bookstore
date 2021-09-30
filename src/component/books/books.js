@@ -14,7 +14,6 @@ const Books = () => {
   const dispatch = useDispatch();
   const loadBooksAction = bindActionCreators(loadBooks, dispatch);
   const deleteBook = (book) => {
-    console.log('click');
     dispatch(remove(book.item_id));
   };
   useEffect(() => {
@@ -23,11 +22,11 @@ const Books = () => {
 
   return (
     <div className="divs">
-      {Object.keys(books).map((book) => (
+      {books.map((book) => (
         <Showbooks
-          title={books[book].title}
-          category={books[book].category}
-          item_id={() => {
+          title={book.title}
+          category={book.category}
+          removeBook={() => {
             deleteBook(book);
           }}
           key={uuidv4()}

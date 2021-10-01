@@ -1,31 +1,33 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { createBook } from '../../redux/books/configBooks';
+import { createBook, loadBooks } from '../../redux/books/configBooks';
 import './form.css';
 
 const Form = () => {
   const dispatch = useDispatch();
   const createBookAction = bindActionCreators(createBook, dispatch);
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [categories, setCategories] = useState('');
+  const [category, setCategory] = useState('');
   const updateTitle = (e) => setTitle(e.target.value);
-  const updateAuthor = (e) => setAuthor(e.target.value);
-  const updateCategory = (e) => setCategories(e.target.value);
+  const updateCategory = (e) => setCategory(e.target.value);
+  const loadBooksAction = bindActionCreators(loadBooks, dispatch);
+
   const addNewBook = (e) => {
     e.preventDefault();
-    if (title && author) {
+    loadBooksAction();
+    if (title) {
       createBookAction({
         title,
-        author,
-        categories,
+        category,
       });
       setTitle('');
-      setAuthor('');
-      setCategories('');
+      setCategory('');
+    } else {
+      alert('plese complete all the cases');
     }
   };
   return (
@@ -33,7 +35,6 @@ const Form = () => {
       <h3 className="title"> Add new book</h3>
       <form onSubmit={addNewBook}>
         <input id="book" placeholder="Book Title" onChange={updateTitle} value={title} type="text" />
-        <input id="author" placeholder="Author" onChange={updateAuthor} type="text" value={author} />
         <select name="category" onChange={updateCategory}>
           <option value="Category">Category</option>
           <option value="Fantasy">Fantasy</option>

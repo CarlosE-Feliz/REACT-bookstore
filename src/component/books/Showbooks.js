@@ -9,13 +9,16 @@ const Showbooks = ({ title, category, removeBook }) => (
   <section className="section">
     <div className="divs">
       <ul style={{ lineHeight: '0' }}>
+        <li className="li-style">
+          {category}
+        </li>
         <li>
           <h3 style={{ fontSize: '1.375rem' }}>
             {title}
           </h3>
         </li>
-        <li className="li-style">
-          {category}
+        <li className="li-style ul">
+          <h6>Jhon Doe</h6>
         </li>
       </ul>
       <ul className="ul">
@@ -30,7 +33,7 @@ const Showbooks = ({ title, category, removeBook }) => (
         </li>
       </ul>
     </div>
-    <div className="div-R">
+    <div className="divs" style={{ flexDirection: 'initial' }}>
       <img src="https://cdn-icons-png.flaticon.com/512/3208/3208743.png" alt="loading" />
       <ul>
         <li>

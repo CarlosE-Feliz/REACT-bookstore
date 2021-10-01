@@ -33,15 +33,19 @@ const Form = () => {
   return (
     <>
       <h3 className="title"> Add new book</h3>
-      <form onSubmit={addNewBook}>
-        <input id="book" placeholder="Book Title" onChange={updateTitle} value={title} type="text" />
-        <select name="category" onChange={updateCategory}>
-          <option value="Category">Category</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Horror">Horror</option>
-          <option value="Love">Love</option>
-        </select>
-        <button type="submit">Add book</button>
+      <form className="input-group" onSubmit={addNewBook}>
+        <div className="input-group form ">
+          <input id="book" className="form-control" list="datalistOptions" onChange={updateTitle} value={title} placeholder="Book title..." />
+          <select className="form-select" aria-label=".form-select-lg example" onChange={updateCategory}>
+            <option selected>Open this select menu</option>
+            <option value="Category">Category</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Horror">Horror</option>
+            <option value="Love">Love</option>
+          </select>
+          <button type="submit">Add book</button>
+        </div>
+
       </form>
     </>
   );

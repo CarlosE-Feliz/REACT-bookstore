@@ -19,3 +19,13 @@ select {
   width: 150px;
   margin: 25px;
 }
+
+.logo {
+  color: #2ba1ff !important;
+  font-size: 30px;
+  margin: 18px !important;
+}
+
+.form {
+  align-items: center;
+}

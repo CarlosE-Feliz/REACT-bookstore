@@ -15,7 +15,7 @@ const Home = () => (
     <div className="main">
       <nav id="nav-bar" className="nav-bar">
         <ul className="nav-ul">
-          <li>
+          <li className="logo">
             Bookstore CMS
           </li>
           <li>

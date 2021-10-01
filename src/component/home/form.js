@@ -37,8 +37,7 @@ const Form = () => {
         <div className="input-group form ">
           <input id="book" className="form-control" list="datalistOptions" onChange={updateTitle} value={title} placeholder="Book title..." />
           <select className="form-select" aria-label=".form-select-lg example" onChange={updateCategory}>
-            <option selected>Book title</option>
-            <option value="Category">Category</option>
+            <option selected>Category</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Horror">Horror</option>
             <option value="Love">Love</option>
